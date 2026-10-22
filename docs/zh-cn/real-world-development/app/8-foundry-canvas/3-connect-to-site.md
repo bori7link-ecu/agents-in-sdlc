@@ -1,16 +1,16 @@
 ---
-title: "将代理连接到网站"
-description: "通过保护凭据的本地代理服务集成托管的 Backer Concierge，并对聊天组件进行端到端测试。"
+title: "将智能体连接到网站"
+description: "通过保护凭据的本地代理服务集成托管的 Backer Concierge 智能体，并对聊天组件进行端到端测试。"
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
 prev:
   link: /copilot-workshops/zh-cn/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
-  label: 构建并部署代理
+  label: 构建并部署智能体
 next: { link: /copilot-workshops/zh-cn/real-world-development/app/10-review/, label: 回顾与后续步骤 }
 ---
 
-最后一个模块将把[构建并部署代理][previous-module]中经过测试的托管代理连接到本地运行的 Tailspin Toys 网站。
+最后一个模块将把[构建并部署智能体][previous-module]中经过测试的托管智能体连接到本地运行的 Tailspin Toys 网站。
 
 完成本模块后，将获得：
 
@@ -22,16 +22,16 @@ next: { link: /copilot-workshops/zh-cn/real-world-development/app/10-review/, la
 
 Tailspin Toys 的支持者需要在浏览游戏时获得基于目录的建议。Backer Concierge 应保留对话、支持键盘导航，并明确处理信息不可用的情况和错误。在提供这些便利的同时，不能向浏览器暴露服务凭据或内部对话详情。
 
-## 从托管代理检查点继续
+## 从托管智能体检查点继续
 
-集成使用已有的托管代理，不创建新的 Foundry 资源。
+集成使用已有的托管智能体，不创建新的 Foundry 资源。
 
-1. 返回前面模块中的同一个 Tailspin Toys 存储库、工作树分支和 **Add a Backer Concierge assistant for catalog questions** 议题会话。确认根目录下的 `azure.yaml`、代理源代码和目录均存在，并检查已记录的订阅、专用资源组、Foundry 项目、模型部署及经过测试的托管代理版本。
+1. 返回前面模块中的同一个 Tailspin Toys 存储库、工作树分支和 **Add a Backer Concierge assistant for catalog questions** 议题会话。确认根目录下的 `azure.yaml`、智能体源代码和目录均存在，并检查已记录的订阅、专用资源组、Foundry 项目、模型部署及经过测试的托管智能体版本。
 2. 如果已清理资源，请在集成前恢复相关的[项目和模型][project-module]以及[经过测试的托管部署][previous-module]。
 
 ## 构建服务器端代理服务
 
-Tailspin Toys 完全采用预渲染。浏览器代码绝不能直接调用托管代理，也不能接收 Foundry 凭据。本地 Azure Functions **服务器端凭据边界**负责向 Foundry 进行身份验证，并且只向浏览器返回代理的回答。浏览器发送每条消息时附带一个不透明的对话句柄；代理服务将该句柄映射到 Foundry 对话，而不暴露底层标识符。
+Tailspin Toys 完全采用预渲染。浏览器代码绝不能直接调用托管智能体，也不能接收 Foundry 凭据。本地 Azure Functions **服务器端凭据边界**负责向 Foundry 进行身份验证，并且只向浏览器返回智能体的回答。浏览器发送每条消息时附带一个不透明的对话句柄；代理服务将该句柄映射到 Foundry 对话，而不暴露底层标识符。
 
 代理服务是唯一允许访问 Azure 凭据的代码。在本研讨会中，Function 和网站在本地运行，Astro 开发服务器会将 `/api` 请求转发到 Function。
 
@@ -73,18 +73,18 @@ Tailspin Toys 完全采用预渲染。浏览器代码绝不能直接调用托管
     Run the end-to-end tests for the Backer Concierge widget in the Tailspin Toys site. Verify its core chat flow, conversation continuity, accessibility, error handling, grounding boundaries, and secure use of the local proxy. Report the results and include evidence for any failures.
     ```
 
-11. 审查报告，并在浏览器中验证报告所描述的行为，包括键盘操作以及[托管代理验收检查][agent-checks]中的两轮对话。确认浏览器请求携带不透明句柄，通过 `/api/concierge` 发送，而不是直接发送到 Foundry；响应也不暴露凭据或 Foundry 内部标识符。检查推荐和信息缺失时的回答是否保持在目录范围内。与 Copilot 一起解决失败的测试，必要时重启受影响的本地服务，然后重新运行测试。
+11. 审查报告，并在浏览器中验证报告所描述的行为，包括键盘操作以及[托管智能体验收检查][agent-checks]中的两轮对话。确认浏览器请求携带不透明句柄，通过 `/api/concierge` 发送，而不是直接发送到 Foundry；响应也不暴露凭据或 Foundry 内部标识符。检查推荐和信息缺失时的回答是否保持在目录范围内。与 Copilot 一起解决失败的测试，必要时重启受影响的本地服务，然后重新运行测试。
 
     ![Backer Concierge 聊天组件的端到端测试结果](../../../../_images/app-8-e2e-test-results.png)
 
 ## 检查点与后续步骤
 
-你已构建一个保护凭据的本地代理服务，连接支持无障碍访问的聊天组件，并针对托管的 Backer Concierge 验证了完整的对话流程。本模块的检查点是一个经过本地测试的网站集成，它能遵守目录边界，并且不会向浏览器暴露凭据或 Foundry 内部标识符。这并不代表代理服务或网站已部署到生产环境。
+你已构建一个保护凭据的本地代理服务，连接支持无障碍访问的聊天组件，并针对托管的 Backer Concierge 智能体验证了完整的对话流程。本模块的检查点是一个经过本地测试的网站集成，它能遵守目录边界，并且不会向浏览器暴露凭据或 Foundry 内部标识符。这并不代表代理服务或网站已部署到生产环境。
 
 结束实验后，停止两个本地服务并[清理 Azure 资源][cleanup]。然后沿核心研讨会学习路径继续学习[回顾与后续步骤][core-review]。
 
 [previous-module]: ../2-build-and-deploy/
 [project-module]: ../1-project-and-model/
-[agent-checks]: ../2-build-and-deploy/#在本地检查代理
+[agent-checks]: ../2-build-and-deploy/#在本地检查智能体
 [cleanup]: ../#清理资源
 [core-review]: ../../10-review/

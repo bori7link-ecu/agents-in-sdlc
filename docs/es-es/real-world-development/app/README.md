@@ -18,7 +18,7 @@ El taller sigue un único flujo continuo de Tailspin Toys:
 6. Añade el servidor Model Context Protocol (MCP) de Playwright y úsalo para explorar el filtrado en un navegador.
 7. Crea un agente personalizado de control de calidad (QA) y úsalo para revisar los requisitos, la cobertura y las pruebas de verificación.
 8. Revisa el cambio completo de filtrado y utiliza Agent Merge para la segunda PR.
-9. Usa el lienzo Database Explorer existente y, después, crea y prueba un lienzo de clasificación respaldado por el repositorio.
+9. Comprueba si tienes acceso a los lienzos. Si está disponible, utiliza Database Explorer y crea y prueba un lienzo de clasificación respaldado por el repositorio. Si no tienes las funcionalidades necesarias, registra el bloqueo y utiliza la alternativa de solo lectura o continúa con el resumen.
 
 Para mantener el taller centrado, crearás dos PR: una para las valoraciones por estrellas y otra para el filtrado con las actualizaciones de instrucciones y de la habilidad, el perfil QA y las pruebas. Empieza cada una desde `main` actualizado. El flujo de filtrado y calidad comparte una sesión, un worktree y una rama para que puedas aprovechar el trabajo realizado mientras exploras cada herramienta. El ejercicio final del lienzo permanece en su propia sesión para que puedas centrarte en crear y probar la superficie compartida en lugar de repetir el flujo de PR.
 
@@ -53,7 +53,7 @@ Antes de asistir a este taller, asegúrate de disponer de:
 > Como la aplicación Copilot se ejecuta en tu propio equipo y no en un codespace, la [Lección 0][ex0] explica cómo instalar Node.js y crear tu copia del proyecto antes de instalar la aplicación.
 
 > [!NOTE]
-> Si utilizas Copilot Business o Copilot Enterprise, el administrador debe habilitar la directiva **Copilot CLI** para que puedas utilizar la aplicación.
+> Si utilizas Copilot Business o Copilot Enterprise, el administrador debe mantener habilitada la directiva **GitHub Copilot app**. Esta es independiente de la directiva de Copilot CLI.
 
 ## Comenzar
 

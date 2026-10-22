@@ -56,7 +56,7 @@ Empieza en modo Plan, revisa el plan y, después, utiliza Autopilot para impleme
 
 Antes de empezar, confirma que la PR de valoraciones por estrellas está combinada y que tu rama `main` local está actualizada.
 
-1. Selecciona **Issues** y abre **Allow users to filter games by category and publisher**.
+1. En **Sessions**, en la barra lateral, selecciona la carpeta del repositorio Tailspin Toys y, después, **Issues** en la navegación superior del repositorio. Abre **Allow users to filter games by category and publisher**. Es una incidencia inicial existente; no es necesario crear otra.
 2. Selecciona **New session** y elige un **new working tree** basado en la rama `main` actualizada.
 
     ![Vista de una incidencia en la aplicación GitHub Copilot con una flecha que señala el botón New session](../../../_images/app-new-session-from-issue.png)
@@ -104,12 +104,18 @@ El código parece correcto, pero ¿se ejecuta? Iniciemos la aplicación como ant
     ```
 
 2. En unos instantes, la aplicación se iniciará y se abrirá una ventana de navegador dentro de la aplicación Copilot.
-3. Confirma que las tarjetas de juegos valorados muestran su puntuación sobre cinco.
-4. Cuando termines, pide a Copilot que detenga el servidor de desarrollo que ha iniciado para esta sesión con la indicación siguiente:
+3. Selecciona una categoría y confirma que los resultados coinciden. Borra el filtro, selecciona un editor y confirma que los resultados coinciden con ese editor.
+4. Combina los filtros de categoría y editor y compara los resultados con la incidencia y el plan aprobado. Si se admiten varias categorías, comprueba el comportamiento acordado para combinarlas.
+5. Prueba una combinación sin juegos coincidentes y comprueba el estado vacío. Borra o restablece los filtros y confirma que vuelve a aparecer la lista completa.
+6. Cuando termines, pide a Copilot que detenga el servidor de desarrollo que ha iniciado para esta sesión con la indicación siguiente:
 
     ```plaintext
     Stop the dev server and close the browser canvas.
     ```
+
+## Mantener esta sesión para las siguientes lecciones
+
+Todavía no crees ni combines la PR del filtrado. Conserva esta sesión, este worktree y esta rama para las lecciones 4 a 8. A continuación, aplicarás instrucciones personalizadas al código de filtrado y añadirás mejoras de la habilidad y de QA antes de crear y combinar la PR conjunta en la lección 8. Puedes dejar la sesión inactiva después de detener el servidor de desarrollo y volver a ella en la siguiente lección.
 
 ## Resumen y pasos siguientes
 

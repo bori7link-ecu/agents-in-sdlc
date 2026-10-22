@@ -95,10 +95,11 @@ Por supuesto, no basta con leer el código y dar por hecho que funciona. Vamos a
 
 1. Selecciona **Create PR** en la esquina superior derecha.
 2. Si se solicita, selecciona **Sign in with your browser** y sigue las indicaciones para autenticarte.
-3. Copilot comenzará a crear la PR.
-4. Selecciona la burbuja **PR** situada justo encima del chat para abrir la solicitud en el panel de revisión. Puedes revisarla aquí según sea necesario.
-5. Cuando esté lista, selecciona **Ready to merge**.
-6. Selecciona **Merge pull request** en el nuevo cuadro de diálogo para combinar la solicitud.
+3. Si Copilot explica que la directiva del repositorio exige una incidencia asociada antes de crear la PR, confirma que debe seguir ese proceso.
+4. Copilot comenzará a crear la PR.
+5. Selecciona la burbuja **PR** situada justo encima del chat para abrir la solicitud en el panel de revisión. Puedes revisarla aquí según sea necesario.
+6. Cuando esté lista, selecciona **Ready to merge**.
+7. Selecciona **Merge pull request** en el nuevo cuadro de diálogo para combinar la solicitud.
 
 ## Resumen y pasos siguientes
 

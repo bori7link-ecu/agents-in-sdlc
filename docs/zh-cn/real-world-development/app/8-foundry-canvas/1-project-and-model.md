@@ -9,10 +9,10 @@ prev:
   label: "可选：集成 Foundry"
 next:
   link: /copilot-workshops/zh-cn/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
-  label: 构建并部署代理
+  label: 构建并部署智能体
 ---
 
-第一个模块将准备 Backer Concierge 所需的数据和 Azure 资源。目前尚不需要代理代码或托管部署。
+第一个模块将准备 Backer Concierge 所需的数据和 Azure 资源。目前尚不需要智能体代码或托管部署。
 
 完成本模块后，将获得：
 
@@ -41,7 +41,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
 
 ## 生成目录导出文件
 
-示例存储库包含一个导出脚本，可为代理生成能够读取的文件。
+示例存储库包含一个导出脚本，可为智能体生成能够读取的文件。
 
 8. 在这个关联议题的工作树会话中，将提示框内默认的 `/fix-issue` 提示词替换为：
 
@@ -103,7 +103,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
     Use the Microsoft Foundry skill to recommend two or three current chat models in the tailspin-toys project that meet this issue's acceptance criteria. Explain the tradeoffs and wait for me to choose.
     ```
 
-15. 确认 Copilot 加载了 `microsoft-foundry` 技能，然后根据各模型的优缺点选择一个可用模型。Microsoft Foundry 托管代理快速入门目前使用 `gpt-5.4-mini`，但可用性和配额因区域而异。
+15. 确认 Copilot 加载了 `microsoft-foundry` 技能，然后根据各模型的优缺点选择一个可用模型。Microsoft Foundry 托管智能体快速入门目前使用 `gpt-5.4-mini`，但可用性和配额因区域而异。
 
     ![选择模型](../../../../_images/app-8-select-model.png)
 
@@ -118,7 +118,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
 
 ## 在 Canvas 中验证模型并进行冒烟测试
 
-此检查在尚无代理代码时验证项目和模型。模型冒烟测试不能替代模块 2 中验证托管代理回答是否以目录为依据的测试。
+此检查在尚无智能体代码时验证项目和模型。模型冒烟测试不能替代模块 2 中验证托管智能体回答是否以目录为依据的测试。
 
 17. 选择 **+**，然后选择 **Canvas**，再选择 **Microsoft Foundry (Preview)**。
 18. 打开 Canvas 右上角的 **More options** 菜单，然后选择 **Sign in**。
@@ -129,7 +129,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
 20. 在同一会话中输入：
 
     ```plaintext
-    使用 Microsoft Foundry 技能直接测试我在 tailspin-toys 项目中部署的模型，不要创建代理。根据 @db/catalog.json 中的内容回答以下问题：“我喜欢以追踪 bug 为主题的益智游戏。我应该支持哪个游戏？它筹集了多少资金？”显示回答，并且仅在可以获取时显示所用 token 数和响应时间等有用的元数据。使用我现有的 Azure 登录身份。不要显示凭据、修改文件或创建资源。
+    Use the Microsoft Foundry skill to test my deployed model directly in the tailspin-toys project without creating an agent. Ground it with content from @db/catalog.json and ask: "I love puzzle games about tracking down bugs. What should I back, and how much funding has it raised?" Show me the response and useful metadata such as tokens used and response time, only if available. Use my existing Azure sign-in. Do not display credentials, change files, or create resources.
     ```
 
 21. 检查回答。回答应仅推荐 `db/catalog.json` 中实际存在的游戏，使用正确的标题、发行商和评分，并说明没有可用的筹款信息。如果模型编造游戏、目录详情或筹款金额，请在继续之前比较另一个推荐模型。
@@ -141,7 +141,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
 
 你已准备好 Azure 工具、导出目录，并根据 Backer Concierge 的依据规则测试了部署的模型。本模块的检查点是一个能够推荐目录中实际存在的游戏且不会编造缺失信息的模型。
 
-接下来，你将使用同一个 Tailspin Toys 存储库、工作树分支、关联议题的会话、Foundry 项目和所选模型部署来[构建并部署代理][next-module]。如果在此停止，请[清理 Azure 资源][cleanup]以免继续产生费用。
+接下来，你将使用同一个 Tailspin Toys 存储库、工作树分支、关联议题的会话、Foundry 项目和所选模型部署来[构建并部署智能体][next-module]。如果在此停止，请[清理 Azure 资源][cleanup]以免继续产生费用。
 
 [azure-free]: https://azure.microsoft.com/pricing/purchase-options/azure-account
 [azure-students]: https://azure.microsoft.com/free/students

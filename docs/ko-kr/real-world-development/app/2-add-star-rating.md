@@ -47,7 +47,7 @@ Copilot app은 먼저 프로젝트의 격리된 복사본인 새 작업 트리�
 
 AI가 생성한 모든 변경 내용은 작더라도 병합하기 전에 검토해야 합니다. Copilot app에서 바로 변경 내용을 살펴봅니다.
 
-1. 앱 오른쪽 위에서 **Toggle review panel**을 선택합니다. Copilot이 적용한 보류 중인 모든 변경 내용을 보여 주는 diff 화면이 열립니다.
+1. 앱 오른쪽 위에서 **Toggle review panel**을 선택합니다. 열리는 패널에서 **Changes**를 선택해 변경된 파일과 diff를 확인합니다.
 
     ![Create PR 오른쪽의 Toggle review panel 버튼을 화살표로 가리키는 GitHub Copilot app 위쪽 도구 모음](../../../_images/app-2-review-panel.png)
 
@@ -97,10 +97,11 @@ AI가 생성한 모든 변경 내용은 작더라도 병합하기 전에 검토�
 
 1. 오른쪽 위의 **Create PR**을 선택합니다.
 2. 메시지가 표시되면 **Sign in with your browser**를 선택하고 안내에 따라 인증합니다.
-3. Copilot이 PR을 만들기 시작합니다.
-4. 채팅 바로 위의 **PR** 버블을 선택하여 검토 창에서 PR을 열고 끌어오기 요청을 확인합니다. 필요에 따라 여기에서 PR을 검토할 수 있습니다.
-5. 준비가 되면 **Ready to merge**를 선택합니다.
-6. 새 대화 상자에서 **Merge pull request**를 선택하여 끌어오기 요청을 병합합니다.
+3. Copilot이 PR을 만들기 전에 일치하는 이슈가 필요하다는 리포지토리 정책을 설명하면 해당 절차를 따르도록 확인합니다.
+4. Copilot이 PR을 만듭니다.
+5. 채팅 바로 위의 **PR** 버블을 선택하여 검토 창에서 PR을 열고 끌어오기 요청을 확인합니다. 필요에 따라 여기에서 PR을 검토할 수 있습니다.
+6. 준비가 되면 **Ready to merge**를 선택합니다.
+7. 새 대화 상자에서 **Merge pull request**를 선택하여 끌어오기 요청을 병합합니다.
 
 ## 요약 및 다음 단계
 

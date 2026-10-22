@@ -1,5 +1,5 @@
 ---
-title: "构建并部署代理"
+title: "构建并部署智能体"
 description: "在 Canvas 中生成 Backer Concierge 的初始框架，在本地检查，然后在 Foundry 中部署并重新测试。"
 authors:
   - juliamuiruri4
@@ -9,16 +9,16 @@ prev:
   label: 准备项目和模型
 next:
   link: /copilot-workshops/zh-cn/real-world-development/app/8-foundry-canvas/3-connect-to-site/
-  label: 将代理连接到网站
+  label: 将智能体连接到网站
 ---
 
 本模块将使用 Microsoft Foundry Canvas，把[准备项目和模型][previous-module]中创建的项目、模型部署和目录转变为托管的 Backer Concierge。
 
 完成本模块后，将获得：
 
-- 一个已生成初始框架的代理，包含打包的目录数据和针对性测试。
+- 一个已生成初始框架的智能体，包含打包的目录数据和针对性测试。
 - 针对每项目录和对话验收标准的本地验证证据。
-- 一个已部署并在 Foundry 中重新测试的代理版本。
+- 一个已部署并在 Foundry 中重新测试的智能体版本。
 
 ## 场景
 
@@ -26,7 +26,7 @@ Tailspin Toys 需要一个能够回答实际目录问题、承认信息缺失，
 
 ## 准备部署工具
 
-托管代理的检查和部署通过 Canvas 使用 Azure Developer CLI 完成；继续使用已有的 Foundry 项目和模型。
+托管智能体的检查和部署通过 Canvas 使用 Azure Developer CLI 完成；继续使用已有的 Foundry 项目和模型。
 
 1. 返回模块 1 中关联 **Add a Backer Concierge assistant for catalog questions** 议题的同一会话。确认 `db/catalog.json` 完好、已连接到正确的订阅和 Foundry 项目，并且模型部署仍然存在。如果已清理资源，请先重新完成相关的[项目和模型设置][previous-module]。
 
@@ -49,13 +49,13 @@ Canvas 会生成代码、文件夹结构以及根目录下的 `azure.yaml`，将
 
    Canvas 会将提示词以及当前订阅和 Foundry 项目的上下文发送给 Copilot。它会查找 Agent Framework + Responses API 示例；可能会出现 **Agent with Local Tools (Responses, Agent Framework, Python)** 等选项。
 
-   ![在 Canvas 中生成 Backer Concierge 代理的初始框架](../../../../_images/app-8-scaffold-backer-concierge.png)
+   ![在 Canvas 中生成 Backer Concierge 智能体的初始框架](../../../../_images/app-8-scaffold-backer-concierge.png)
 
 5. 在 **Files** 选项卡中，按照以下检查点审查 Copilot 的更改。`src` 中生成的文件名可能不同，但项目边界和 `azure.yaml` 位置应符合以下要求：
 
-   - 代理位于 `agent/backer-concierge`。
+   - 智能体位于 `agent/backer-concierge`。
    - 存储库根目录中只有一个 `azure.yaml`，其中包含使用 `host: azure.ai.agent` 的服务。
-   - 可部署的代理包含为其生成的目录副本。
+   - 可部署的智能体包含为其生成的目录副本。
    - 针对性测试覆盖回答必须以目录为依据的要求。
    - 不包含凭据或本地环境文件。
 
@@ -72,9 +72,9 @@ Canvas 会生成代码、文件夹结构以及根目录下的 `azure.yaml`，将
 
 6. 要求 Copilot 运行针对性测试并修复所有失败项，然后再继续到 **Deploy and test**。
 
-## 在本地检查代理
+## 在本地检查智能体
 
-**Inspect Locally** 会在 Copilot 集成终端中运行 `azd ai agent run`，等待托管代理启动，然后打开嵌入式 Agent Inspector。
+**Inspect Locally** 会在 Copilot 集成终端中运行 `azd ai agent run`，等待托管智能体启动，然后打开嵌入式 Agent Inspector。
 
 7. 在 **Deploy and test** 中选择 **Inspect Locally**，然后等待 Agent Inspector 打开。
 
@@ -136,24 +136,24 @@ Canvas 会生成代码、文件夹结构以及根目录下的 `azure.yaml`，将
 
     预期结果：第二次回答只涉及第一次回答中的两款游戏，并正确比较它们在目录中的评分。
 
-15. 将每次回答与 `db/catalog.json` 和议题的验收标准对比。确认代理绝不编造游戏、发行商、评分、筹款总额、支持者人数、价格、玩家人数、游戏时长或发布日期。如果 Agent Inspector 报错，或回答超出了目录依据的范围，请将结果复制到 Canvas 的提示词区域，并要求 Copilot 修复。每次更改后都要重新启动本地检查并重跑失败的测试，然后确认全部六项检查通过，再进行部署。
+15. 将每次回答与 `db/catalog.json` 和议题的验收标准对比。确认智能体绝不编造游戏、发行商、评分、筹款总额、支持者人数、价格、玩家人数、游戏时长或发布日期。如果 Agent Inspector 报错，或回答超出了目录依据的范围，请将结果复制到 Canvas 的提示词区域，并要求 Copilot 修复。每次更改后都要重新启动本地检查并重跑失败的测试，然后确认全部六项检查通过，再进行部署。
 
-## 部署并重新测试托管代理
+## 部署并重新测试托管智能体
 
-Canvas 使用 `azd` 部署经过测试的代理。Foundry 会打包服务源代码、解析依赖项、远程构建，并将其发布到 Microsoft Foundry。
+Canvas 使用 `azd` 部署经过测试的智能体。Foundry 会打包服务源代码、解析依赖项、远程构建，并将其发布到 Microsoft Foundry。
 
 16. 在 Canvas 的 **Deploy and test** 中选择 **Deploy to Foundry**。审查自动填入聊天的提示词。
 
     ![画布上的 Deploy to Foundry 提示词](../../../../_images/app-8-deploy-to-foundry.png)
 
-17. 检查是否收到部署确认、代理版本、状态及 Foundry 中代理试验场的链接。如果部署失败，请将错误发送给 Copilot，在同一项目中解决问题后，再通过 Canvas 重试。
-18. 在 Canvas 中选择 **Test in Foundry Portal**，打开已部署代理的试验场。针对这个已部署版本，重新运行第 9–14 步中的全部六项验收检查；连续性检查中的两个提示词仍须在同一段对话中发送。将回答与目录对比；如果有任何检查失败，请要求 Copilot 修复，重新运行本地测试，通过 Canvas 重新部署，并再次测试托管版本。
+17. 检查是否收到部署确认、智能体版本、状态及 Foundry 中智能体试验场的链接。如果部署失败，请将错误发送给 Copilot，在同一项目中解决问题后，再通过 Canvas 重试。
+18. 在 Canvas 中选择 **Test in Foundry Portal**，打开已部署智能体的试验场。针对这个已部署版本，重新运行第 9–14 步中的全部六项验收检查；连续性检查中的两个提示词仍须在同一段对话中发送。将回答与目录对比；如果有任何检查失败，请要求 Copilot 修复，重新运行本地测试，通过 Canvas 重新部署，并再次测试托管版本。
 
 ## 检查点与后续步骤
 
-你已生成 Backer Concierge 的初始框架，在本地测试其目录依据和对话行为，将其部署到 Microsoft Foundry，并重新测试了托管版本。本模块的检查点是一个能够通过全部六项验收检查且不会编造缺失信息的托管代理。
+你已生成 Backer Concierge 的初始框架，在本地测试其目录依据和对话行为，将其部署到 Microsoft Foundry，并重新测试了托管版本。本模块的检查点是一个能够通过全部六项验收检查且不会编造缺失信息的托管智能体。
 
-接下来，你将使用同一个 Tailspin Toys 存储库、工作树分支、关联议题的会话、Foundry 项目、所选模型部署和托管代理来[将代理连接到网站][next-module]。如果在此停止，请[清理 Azure 资源][cleanup]以免继续产生费用。
+接下来，你将使用同一个 Tailspin Toys 存储库、工作树分支、关联议题的会话、Foundry 项目、所选模型部署和托管智能体来[将智能体连接到网站][next-module]。如果在此停止，请[清理 Azure 资源][cleanup]以免继续产生费用。
 
 [previous-module]: ../1-project-and-model/
 [next-module]: ../3-connect-to-site/

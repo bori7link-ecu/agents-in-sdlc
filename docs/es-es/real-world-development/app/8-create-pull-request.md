@@ -33,8 +33,8 @@ Con todo el código creado y revisado, permitamos que Agent Merge gestione el pr
 
 1. Utiliza el selector de agentes para seleccionar **Default agent**.
 2. Selecciona el menú desplegable junto a **Create PR**.
-3. Selecciona **Agent merge**. El botón cambia a **Agent merge**.
-4. Selecciona **Agent merge** para iniciar el proceso.
+3. Selecciona **Agent Merge**. El botón cambia a **Agent Merge**.
+4. Selecciona el botón **Agent Merge** para iniciar el proceso. Elegir la opción del menú desplegable por sí sola no lo inicia.
 
 El proceso de Agent Merge comienza. Hará lo siguiente:
 
@@ -47,8 +47,16 @@ El proceso de Agent Merge comienza. Hará lo siguiente:
 
 Permitamos que Agent Merge también combine la PR cuando se supere todo.
 
-5. Selecciona el menú desplegable junto a **Agent merge**.
-6. Comprueba que **Merge pull request** está marcado.
+5. Revisa las diferencias de la PR y las pruebas de verificación antes de conceder permiso para combinar.
+6. Selecciona el menú desplegable junto a **Agent Merge**.
+7. Comprueba que **Merge pull request** está marcado.
+8. Pide explícitamente al agente que combine la PR:
+
+    ```plaintext
+    Merge the PR once all required checks and approvals pass. Do not bypass repository protections.
+    ```
+
+9. Sigue su progreso y resuelve los bloqueos que comunique. Antes de continuar, confirma que el estado de la PR es **Merged**; tener habilitado el permiso para combinar o un agente en ejecución no confirma que la combinación haya terminado.
 
 > [!IMPORTANT]
 > Agent Merge no elude las protecciones del repositorio ni los permisos ausentes. Resuelve esos bloqueos antes de continuar.
